@@ -1,37 +1,42 @@
-import { labs } from "@/content/site";
-
 export function Research() {
   return (
-    <section id="research" className="scroll-mt-16 px-5 py-24 md:px-10 md:py-32">
-      <div className="mb-16 flex items-center justify-between font-mono text-[11px] tracking-[0.22em] text-lime uppercase">
-        <span>Det 02 · Research</span>
-        <span className="flex items-center gap-2">
-          <span className="inline-block h-2 w-2 bg-hot" />
-          Both active
-        </span>
-      </div>
-
-      <div className="border-t border-paper/15">
-        {labs.map((lab) => (
-          <article key={lab.id} className="group border-b border-paper/15 py-10 md:py-14">
-            <div className="mb-4 flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase">
-              <span className="text-lime">{lab.id}</span>
-              <span className="text-mist">{lab.when}</span>
-            </div>
-            <h2 className="stroke-word font-display text-[clamp(4rem,13vw,11rem)] leading-[0.8] tracking-[-0.045em]">
-              {lab.word}
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-              <p className="font-mono text-xs tracking-[0.14em] text-paper uppercase">
-                {lab.person}
-                <span className="mt-1 block text-mist normal-case tracking-normal">
-                  {lab.place}
-                </span>
-              </p>
-              <p className="max-w-xl text-lg leading-snug text-mist md:text-2xl">{lab.text}</p>
-            </div>
+    <section id="research" className="border-t border-line px-4 py-20">
+      <div className="mx-auto max-w-[760px]">
+        <h2 className="font-display text-4xl font-medium tracking-tight">Research</h2>
+        <div className="mt-10 space-y-8 leading-relaxed">
+          <article>
+            <h3 className="font-display text-2xl font-medium">madAbility</h3>
+            <p className="mt-1 text-sm text-muted">2026-present, Prof. Yuhang Zhao</p>
+            <p className="mt-3">
+              I study how vision-language models answer visual questions, including OpenAI and Claude models. I lead the efficacy analysis on the current project.
+            </p>
           </article>
-        ))}
+          <article>
+            <h3 className="font-display text-2xl font-medium">Wisconsin Institute for Discovery</h3>
+            <p className="mt-1 text-sm text-muted">September 2026 to present, Prof. Kevin Ponto</p>
+            <p className="mt-3">
+              Undergraduate research on vision-language models for low-light room understanding. The room on this page is a drawing of that problem. It is not a reconstruction from the model, and it is not a latency or accuracy result.
+            </p>
+          </article>
+          <article>
+            <h3 className="font-display text-2xl font-medium">Room VLM</h3>
+            <p className="mt-3">
+              The public project fine-tunes Qwen3-VL-4B-Instruct with LoRA and QLoRA on NYU Depth V2. Frames come from video, and every frame from one physical room stays in the same split. The label is one of bedroom, living room, bathroom, or kitchen. Opening the repository does not train a model.
+            </p>
+            <p className="mt-3">
+              <a className="text-accent underline" href="https://github.com/NihalCode/room-vlm">
+                Room VLM repository
+              </a>
+            </p>
+          </article>
+          <article>
+            <h3 className="font-display text-2xl font-medium">Earlier research</h3>
+            <p className="mt-1 text-sm text-muted">October 2024 to January 2025, Prof. Durga Sharma</p>
+            <p className="mt-3">
+              At Golden Gate University I compared machine-learning models on NASA GRACE data. Random Forest was the model we kept, and tuning cut its cost by about 15%.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
   );

@@ -3,3 +3,8 @@ node_modules
 out
 .DS_Store
 *.log
+tsconfig.tsbuildinfo
+test-results
+playwright-report
+blob-report
+docs/qa

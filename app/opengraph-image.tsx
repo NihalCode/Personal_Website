@@ -13,15 +13,13 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#070708",
-          color: "#f4f4f0",
+          background: "#e4e7ea",
+          color: "#171a1f",
           padding: 64,
         }}
       >
-        <div style={{ display: "flex", color: "#d6ff3f", fontSize: 24 }}>
-          DET 00 · PERSON · 0.97
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 84, lineHeight: 0.9 }}>
+        <div style={{ display: "flex", width: 72, height: 8, background: "#1f4e5f" }} />
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 76, lineHeight: 1 }}>
           <div>Nihal</div>
           <div>Samavedam</div>
         </div>

@@ -1,72 +1,33 @@
-"use client";
-
 import { profile } from "@/content/site";
-import { useState } from "react";
 
 export function Contact() {
-  const [copied, setCopied] = useState<string | null>(null);
-
-  const copy = async (address: string) => {
-    try {
-      await navigator.clipboard.writeText(address);
-      setCopied(address);
-      window.setTimeout(() => setCopied(null), 1600);
-    } catch {
-      setCopied(null);
-    }
-  };
-
   return (
-    <section
-      id="contact"
-      className="relative scroll-mt-16 overflow-hidden bg-lime px-5 py-20 text-ink md:px-10 md:py-28"
-    >
-      <p
-        aria-hidden
-        className="pointer-events-none absolute -top-[0.18em] left-3 font-display text-[22vw] leading-none tracking-[-0.06em] text-transparent select-none md:left-6"
-        style={{ WebkitTextStroke: "1.5px #070708" }}
-      >
-        Contact
-      </p>
-
-      <div className="relative pt-[18vw]">
-        <p className="font-mono text-[11px] tracking-[0.22em] uppercase">Det 05 · Open channel</p>
-        <ul className="mt-8 space-y-8">
-          {profile.emails.map((item) => (
-            <li key={item.address}>
-              <p className="font-mono text-[11px] tracking-[0.18em] uppercase">{item.label}</p>
-              <a
-                href={`mailto:${item.address}`}
-                className="mt-2 block max-w-full font-display text-[clamp(1.7rem,4.2vw,4.4rem)] leading-[0.9] tracking-[-0.04em] break-all"
-              >
-                {item.address}
-              </a>
-              <button
-                type="button"
-                onClick={() => copy(item.address)}
-                className="mt-2 font-mono text-xs tracking-[0.14em] uppercase"
-              >
-                {copied === item.address ? "Copied" : `Copy ${item.label.toLowerCase()}`}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <a href={profile.github} target="_blank" rel="noreferrer" className="font-display text-3xl">
-            GitHub →
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="font-display text-3xl"
-          >
-            LinkedIn →
-          </a>
+    <section id="contact" className="border-t border-line px-4 py-20">
+      <div className="mx-auto max-w-[760px]">
+        <h2 className="font-display text-4xl font-medium tracking-tight">Contact</h2>
+        <div className="mt-8 space-y-6">
+          <p>
+            <span className="block text-sm text-muted">Academic</span>
+            <a className="text-lg text-accent underline" href={`mailto:${profile.emails.academic}`}>
+              {profile.emails.academic}
+            </a>
+          </p>
+          <p>
+            <span className="block text-sm text-muted">Personal</span>
+            <a className="text-accent underline" href={`mailto:${profile.emails.personal}`}>
+              {profile.emails.personal}
+            </a>
+          </p>
+          <p className="flex flex-col gap-2">
+            <a className="text-accent underline" href={profile.links.github}>
+              GitHub
+            </a>
+            <a className="text-accent underline" href={profile.links.linkedin}>
+              LinkedIn
+            </a>
+          </p>
         </div>
-
-        <p className="mt-16 max-w-md font-mono text-[11px] tracking-[0.12em] uppercase">
+        <p className="mt-12 max-w-[52ch] text-sm text-muted">
           No analytics. No session replay. Fonts are served from this site.
         </p>
       </div>

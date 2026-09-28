@@ -10,13 +10,13 @@ export default function Icon() {
         style={{
           width: 32,
           height: 32,
-          background: "#070708",
-          color: "#d6ff3f",
+          background: "#171a1f",
+          color: "#e4e7ea",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           fontSize: 11,
-          fontWeight: 700,
+          fontWeight: 600,
         }}
       >
         NS

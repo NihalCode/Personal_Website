@@ -1,35 +1,34 @@
 import type { Metadata } from "next";
-import "@fontsource/anybody/800.css";
+import { headers } from "next/headers";
+import "@fontsource/outfit/500.css";
+import "@fontsource/outfit/600.css";
 import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-mono/400.css";
-import "@fontsource/ibm-plex-mono/500.css";
-import { Providers } from "@/components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Nihal Samavedam",
   description:
-    "CS student at UW–Madison. Vision-language model research at madAbility and the Wisconsin Institute for Discovery.",
+    "Computer Science student at UW-Madison. Research on vision-language models, plus an AI support agent and runnable API documentation from a Cyware internship.",
   authors: [{ name: "Nihal Samavedam" }],
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Opt into a per-request render so Next can stamp script nonces that match the CSP.
+  await headers();
   return (
     <html lang="en">
       <body className="antialiased">
-        <a
-          href="#work"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[90] focus:bg-lime focus:px-3 focus:py-2 focus:text-ink"
-        >
+        <a href="#work" className="skip-link">
           Skip to work
         </a>
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

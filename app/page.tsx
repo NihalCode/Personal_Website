@@ -1,24 +1,21 @@
-import { SiteChrome } from "@/components/site-chrome";
-import { Hero } from "@/components/hero";
-import { Marquee } from "@/components/marquee";
-import { Work } from "@/components/work";
-import { Research } from "@/components/research";
-import { Record } from "@/components/record";
-import { ModelCard } from "@/components/model-card";
+import { About } from "@/components/about";
 import { Contact } from "@/components/contact";
+import { Nav } from "@/components/nav";
+import { Perception } from "@/components/perception";
+import { Research } from "@/components/research";
+import { Work } from "@/components/work";
 
 export default function Page() {
   return (
-    <SiteChrome>
+    <>
+      <Nav />
       <main>
-        <Hero />
-        <Marquee />
-        <Work />
+        <Perception />
         <Research />
-        <Record />
-        <ModelCard />
+        <Work />
+        <About />
         <Contact />
       </main>
-    </SiteChrome>
+    </>
   );
 }
