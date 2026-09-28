@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anybody", sans-serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #070708;
+  --color-paper: #f4f4f0;
+  --color-mist: #b7b7ae;
+  --color-lime: #d6ff3f;
+  --color-hot: #ff3d6e;
+}
+
+html {
+  background: var(--color-ink);
+  scroll-behavior: auto;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: #d6ff3f;
+  color: #070708;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button {
+    cursor: none;
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.stroke-word {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #f4f4f0;
+  transition: color 0.35s ease, -webkit-text-stroke 0.35s ease;
+}
+
+.group:hover .stroke-word {
+  color: #d6ff3f;
+  -webkit-text-stroke: 0;
+}
+
+.work-reel {
+  display: none;
+}
+
+.work-stack {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .work-reel {
+    display: block;
+  }
+
+  .work-stack {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-reel {
+    display: none;
+  }
+
+  .work-stack {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .stroke-word {
+    transition: none;
+  }
+}
